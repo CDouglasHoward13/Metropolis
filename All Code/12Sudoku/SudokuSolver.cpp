@@ -1,11 +1,31 @@
-/////////////////////////////////////////////////////////////////////////////////
+/*
+MIT License
+
+Copyright (c) 2024 CDouglasHoward13
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+////////////////////////////////////////////////////////////////////////////////
 // Metropolis Sudoku solver as described in Section 12. The data file
 // Puzzle1.txt is the example in the text. You may make additional puzzle
 // data files using SudokuPuzzleMaker.cpp.
-//
-// This code is for educational purposes only. You
-// may use it for any such purpose provided you include my byline:
-// -- C Douglas Howard
 ////////////////////////////////////////////////////////////////////////////////
 
 // Global variables.
@@ -51,6 +71,7 @@ int main () {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Solve the puzzle via Metropolis. ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 void Metropolis () {
 
    int E, AcceptTransition, deltaE, n=0;
@@ -152,6 +173,7 @@ void Proposal () {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Compute the acceptance probabilities at temperature T. //////////////////////
+////////////////////////////////////////////////////////////////////////////////
 void Probabilities () {
 
    int deltaE;
@@ -166,6 +188,7 @@ void Probabilities () {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Get the puzzle from a file and initialize certain information. //////////////
+////////////////////////////////////////////////////////////////////////////////
 void GetPuzzle () {
 
    int i, j, *d;
@@ -230,6 +253,7 @@ void GetPuzzle () {
 
 ////////////////////////////////////////////////////////////////////////////////
 // Report the puzzle or the solution to the screen. ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 void Report () {
 
    int i, j;
@@ -279,6 +303,7 @@ void Report () {
 
 ////////////////////////////////////////////////////////////////////////////////
 // This function totals up the number conflicts in the initial configuration. //
+////////////////////////////////////////////////////////////////////////////////
 int Energy () {
 
    int E, i, j;
@@ -303,6 +328,7 @@ int Energy () {
 // This function computes the number of conflicts with cell (r0,c0) in     /////
 //   the configuration x when the digit x[r0][c0] is changed to d.         /////
 // Conflicts involving a clue are given an energy of 5, other conflicts 1. /////
+////////////////////////////////////////////////////////////////////////////////
 int Conflicts (int r0, int c0, int d) {
 
    int c, r, k, left, lower, conflicts = 0;
@@ -343,6 +369,7 @@ int Conflicts (int r0, int c0, int d) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // Allocate array space. //////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////
 void AllocateMemory () {
 
    int i;
