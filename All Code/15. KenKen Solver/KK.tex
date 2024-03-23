@@ -1,0 +1,32 @@
+\input pictex
+\nopagenumbers
+\magnification=\magstep1
+\centerline {\sl Puzzle}
+\vskip.1truein
+\centerline{
+\beginpicture
+\setcoordinatesystem units <.35 truein, .35 truein>
+\setplotarea x from 0 to 7, y from  0 to 7
+\setdashpattern <.02truein,.02truein>
+\setplotsymbol ({$\scriptstyle\cdot$})
+\grid 7 7
+\setsolid\setplotsymbol ({$\scriptscriptstyle\bullet$})
+\plot 0 0  0 7  7 7  7 0  0 0 /
+\input PuzzleRegions.txt
+\endpicture}
+\vfill\eject
+
+\centerline {\sl Solution}
+\vskip.1truein
+\centerline{
+\beginpicture
+\setcoordinatesystem units <.35 truein, .35 truein>
+\setplotarea x from 0 to 7, y from  0 to 7
+\setdashpattern <.02truein,.02truein>
+\setplotsymbol ({$\scriptstyle\cdot$})\grid 7 7
+\setsolid\setplotsymbol ({$\scriptscriptstyle\bullet$})
+\plot 0 0  0 7  7 7  7 0  0 0 /
+\input PuzzleRegions.txt
+\input PuzzleSolution.txt
+\endpicture}
+\vfill\eject\end
