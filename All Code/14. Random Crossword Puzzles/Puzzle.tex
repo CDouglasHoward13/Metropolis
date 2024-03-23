@@ -1,0 +1,11 @@
+\input pictex\magnification=\magstep1\hsize=6.5truein\vsize=9.5truein
+\voffset=.5truein
+\baselineskip=.22truein\nopagenumbers\parindent=0truein
+\beginpicture\setcoordinatesystem units <3truein, 3truein>
+\setplotarea x from 0 to 1, y from  0 to 1
+\setplotsymbol({$\scriptscriptstyle\bullet$})
+\plot 0 0  0 1  1 1  1 0  0 0 /
+\grid 5 5
+\shaderectangleson\setshadesymbol ({$\cdot$})\setshadegrid span <.005truein>
+\input "Letters.txt"
+\endpicture\vfill\eject\end
