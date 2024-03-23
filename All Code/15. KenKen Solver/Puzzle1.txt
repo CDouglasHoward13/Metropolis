@@ -1,0 +1,31 @@
+AABCDDE
+FABCGHI
+FJJKKHI
+LJMMNOI
+LPPQNRR
+LSSQTUV
+WWXXTUV
+A * 72
+B - 3
+C - 3
+D - 4
+E + 2
+F - 1
+G + 5
+H - 3
+I + 12
+J + 9
+K - 6
+L * 15
+M - 1
+N - 1
+O + 5
+P - 1
+Q - 3
+R - 1
+S - 3
+T + 10
+U - 3
+V - 3
+W / 2
+X - 2
