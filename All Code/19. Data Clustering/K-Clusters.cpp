@@ -195,7 +195,8 @@ void GetData () {
 
    fclose (fp);
 
-}
+
+}
 ////////////////////////////////////////////////////////////////////////////////
 // Compute cluster counts and sums.
 ////////////////////////////////////////////////////////////////////////////////
@@ -210,41 +211,65 @@ void ComputeSums () {
 
    // Calculate population and coordinate sums for each cluster.
    for (i = 1; i <= N; i++) {
-      k = cluster[i];  // This is the cluster that student number i is in.
-      count[k] += 1;
-      Xsum[k]  += x[i];
-      X2sum[k] += x[i]*x[i];
-      Ysum[k]  += y[i];
-      Y2sum[k] += y[i]*y[i];
-   }
 
-}
-
+      k = cluster[i];  // This is the cluster that student number i is in.
+
+      count[k] += 1;
+
+      Xsum[k]  += x[i];
+
+      X2sum[k] += x[i]*x[i];
+
+      Ysum[k]  += y[i];
+
+      Y2sum[k] += y[i]*y[i];
+
+   }
+
+
+}
+
+
 ////////////////////////////////////////////////////////////////////////////////
 // Propose a change to the current configuration.
 ////////////////////////////////////////////////////////////////////////////////
 void Proposal () {
 
-   // Pick a student to move to a different cluster.
-   i0 = RandomInteger (1, N);
 
-   // Which cluster is it moving from?
-   from = cluster[i0];
+   // Pick a student to move to a different cluster.
 
-   // Pick a different cluster to move i0 to.
-   to = from;
-   while (to == from) {
-      to = RandomInteger (1, K);
-   }
+   i0 = RandomInteger (1, N);
 
-   // Update data to reflect moving i0 from from to to. This function is
-   //    20 times faster than updating the sums with ComputeSums ().
-   UpdateData (i0, from, to);
 
-}
+   // Which cluster is it moving from?
 
-////////////////////////////////////////////////////////////////////////////////
-// Restore the current configuration. Update relevant data.
+   from = cluster[i0];
+
+
+   // Pick a different cluster to move i0 to.
+
+   to = from;
+
+   while (to == from) {
+
+      to = RandomInteger (1, K);
+
+   }
+
+
+   // Update data to reflect moving i0 from from to to. This function is
+
+   //    20 times faster than updating the sums with ComputeSums ().
+
+   UpdateData (i0, from, to);
+
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Restore the current configuration. Update relevant data.
 ////////////////////////////////////////////////////////////////////////////////
 void Restore () {
 
@@ -252,20 +277,31 @@ void Restore () {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// Move student i from cluster f to cluster t. Update related info.
-////////////////////////////////////////////////////////////////////////////////
-void UpdateData (int i, int f, int t) {
 
-   // t is i's new cluster.
-   cluster[i] = t;
+////////////////////////////////////////////////////////////////////////////////
 
-   // Update cluster counts.
-   count[t] ++;
-   count[f] --;
+// Move student i from cluster f to cluster t. Update related info.
 
-   // Decrement cluster f's data counts.
-   Xsum[f]  -= x[i];
+////////////////////////////////////////////////////////////////////////////////
+
+void UpdateData (int i, int f, int t) {
+
+
+   // t is i's new cluster.
+
+   cluster[i] = t;
+
+
+   // Update cluster counts.
+
+   count[t] ++;
+
+   count[f] --;
+
+
+   // Decrement cluster f's data counts.
+
+   Xsum[f]  -= x[i];
    X2sum[f] -= x[i]*x[i];
    Ysum[f]  -= y[i];
    Y2sum[f] -= y[i]*y[i];
@@ -279,7 +315,8 @@ void Restore () {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// Report the clusters to Clusters.txt.
+
+// Report the clusters to Clusters.txt.
 ////////////////////////////////////////////////////////////////////////////////
 void Report () {
 
@@ -321,29 +358,47 @@ void Report () {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// Find the center closest to each student.
-////////////////////////////////////////////////////////////////////////////////
-int ClosestCenter (int i) {
 
-   int kmin, k;
-   double d2min, d2;
+////////////////////////////////////////////////////////////////////////////////
 
-   d2min = 1e+20;
-   for (k = 1; k <= K; k++) {
-      d2 = Distance2 (x[i],y[i], Xbar[k],Ybar[k]); 
-      if (d2 < d2min) {
-         d2min = d2;
-         kmin = k;
-      }
-   }
+// Find the center closest to each student.
 
-   return kmin;
+////////////////////////////////////////////////////////////////////////////////
 
-}
+int ClosestCenter (int i) {
 
-////////////////////////////////////////////////////////////////////////////////
-// Compute the squared-distance from (x1,y1) to (x2,y2).
+
+   int kmin, k;
+
+   double d2min, d2;
+
+
+   d2min = 1e+20;
+
+   for (k = 1; k <= K; k++) {
+
+      d2 = Distance2 (x[i],y[i], Xbar[k],Ybar[k]); 
+
+      if (d2 < d2min) {
+
+         d2min = d2;
+
+         kmin = k;
+
+      }
+
+   }
+
+
+   return kmin;
+
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Compute the squared-distance from (x1,y1) to (x2,y2).
 ////////////////////////////////////////////////////////////////////////////////
 double Distance2 (double x1, double y1, double x2, double y2) {
 
@@ -351,8 +406,10 @@ double Distance2 (double x1, double y1, double x2, double y2) {
 
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// Calculate the energy function.
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Calculate the energy function.
 ////////////////////////////////////////////////////////////////////////////////
 double Energy () {
 
