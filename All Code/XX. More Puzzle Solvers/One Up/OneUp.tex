@@ -1,0 +1,24 @@
+\input pictex\nopagenumbers\magnification=\magstep1
+\centerline {\sl One Up Puzzle}\vskip.1truein
+\centerline{\beginpicture
+\setcoordinatesystem units <.3 truein, .3 truein>
+\setplotarea x from 0 to 8, y from  0 to 8
+\setdashpattern <.02truein, .02truein>
+\grid 8 8
+\setsolid\setplotsymbol ({$\cdot$})
+\plot 0 0  0 8  8 8  8 0  0 0 /
+\input PuzzleData.txt
+\endpicture}
+\vfill\eject
+\centerline {\sl One Up Solution}\vskip.1truein
+\centerline{\beginpicture
+\setcoordinatesystem units <.3 truein, .3 truein>
+\setplotarea x from 0 to 8, y from  0 to 8
+\setdashpattern <.02truein, .02truein>
+\grid 8 8
+\setsolid\setplotsymbol ({$\cdot$})
+\plot 0 0  0 8  8 8  8 0  0 0 /
+\input PuzzleData.txt
+\input Solution.txt
+\endpicture}
+\vfill\eject\end
