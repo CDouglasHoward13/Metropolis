@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}\usepackage{pictex}\pagestyle{empty}
+\begin{document}
+\beginpicture
+\setcoordinatesystem units <.3truein, .3truein> 
+\setplotarea x from 0.5 to 8.5, y from  0.5 to 8.5
+\put {\sl Traffic Signals Puzzle} at 4.5 9.75
+\put {\sl (dashed $=$ green, solid $=$ red)} at 4.5 9.25
+\setplotsymbol ({$\cdot$})
+\plot .5 .5  .5 8.5  8.5 8.5  8.5 .5  .5 .5 /
+\setplotsymbol ({$\scriptscriptstyle\cdot$})
+\setdashpattern <.01truein, .04truein>
+\grid 8 8
+\setdashpattern <.025truein, .04truein>
+\setplotsymbol ({$\cdot$})
+\input Green.txt
+\setsolid
+\input Red.txt
+\endpicture\vfill\eject
+
+\beginpicture
+\setcoordinatesystem units <.3truein, .3truein> 
+\setplotarea x from 0.5 to 8.5, y from  0.5 to 8.5
+\put {\sl Traffic Signals Solution} at 4.5 9.5
+\setplotsymbol ({$\cdot$})
+\plot .5 .5  .5 8.5  8.5 8.5  8.5 .5  .5 .5 /
+\setplotsymbol ({$\scriptscriptstyle\cdot$})
+\setdashpattern <.01truein, .04truein>
+\grid 8 8
+\setdashpattern <.025truein, .04truein>
+\setplotsymbol ({$\cdot$})
+\input Green.txt
+\setsolid
+\input Red.txt
+\multiput {$\scriptscriptstyle\bullet$} at "CellCenters.txt"
+\setplotsymbol ({$\scriptscriptstyle\cdot$})
+\input Solution.txt
+\endpicture\vfill\eject
+
+
+\end{document}
